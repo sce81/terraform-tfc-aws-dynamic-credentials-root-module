@@ -1,15 +1,15 @@
-variable "tfc_organization_name" {
-  default     = "HashiCorp_TFC_Automation_Demo"
+variable "organization" {
+  default     = "HashiCorp_AWS_Org"
   type        = string
   description = "Name of Terraform organisation to deploy resources to"
 }
 variable "tfc_project_name" {
   default     = "Default Project"
   type        = string
-  description = "Name of Terraform Cloud Project to deploy workspaces to"
+  description = "Name of HCP Terraform Project to configure authentication for"
 }
 variable "tfc_workspace_name" {
-  default     = "Vault Dynamic Credentials"
+  default     = "*"
   type        = string
-  description = "Name of Terraform Workspace to provision"
+  description = "For additional security, authentication can be tied to an individual workspace"
 }
