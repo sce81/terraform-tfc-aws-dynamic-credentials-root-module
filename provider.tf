@@ -1,28 +1,26 @@
 terraform {
 
   cloud {
-    organization = "HashiCorp_TFC_Automation_Demo"
+    organization = "HashiCorp_AWS_Org"
     workspaces {
-      tags = ["credentials"]
+      project = "terraform-admin"
+      tags = {
+        "workspace" = "aws-oidc-authentication",
+      }
     }
   }
   required_providers {
     aws = {
-      version = "~> 5.31.0"
+      version = "~> 6.21.0"
       source  = "hashicorp/aws"
-    }
-    tfe = {
-      source  = "hashicorp/tfe"
-      version = "~> 0.51.1"
-    }
-    tls = {
-      source  = "hashicorp/tls"
-      version = "~> 4.0.5"
     }
   }
 }
 
 provider "aws" {
   region = "eu-west-1"
+  default_tags {
+    tags = local.tags
 
+  }
 }
