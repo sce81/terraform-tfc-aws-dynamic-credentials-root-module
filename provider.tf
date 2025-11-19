@@ -3,6 +3,7 @@ terraform {
   cloud {
     organization = "HashiCorp_AWS_Org"
     workspaces {
+      //name = "hcp_workspace_aws_oidc_auth_onetech-non-production"
       project = "terraform-admin"
       tags = {
         "workspace" = "aws-oidc-authentication",
@@ -21,6 +22,6 @@ provider "aws" {
   region = "eu-west-1"
   default_tags {
     tags = local.tags
-
+    
   }
 }
